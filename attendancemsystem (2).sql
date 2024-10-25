@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2024 at 05:07 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Apr 10, 2024 at 06:47 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48728,9 +48728,7 @@ CREATE TABLE `job_post` (
 --
 
 INSERT INTO `job_post` (`id_jobpost`, `id_company`, `jobtitle`, `description`, `minimumsalary`, `eligibility`, `experience`, `qualification`, `createdat`) VALUES
-(3, 3, 'Java Backend developer', 'Handel the Company\'s Database in Java Language', '90000', '7.5 CGPA and Data Structure', '2 years', 'M.Tech in Computer Engineer', '2024-01-17 16:34:19'),
-(5, 0, 'PHP dev', 'Should know SQL', '10 LPA', '8 CGPA', 'Fresher', 'BE in CS', '2024-09-27 13:53:00'),
-(7, 0, 'Full stack dev', 'Must know SQL', '12LPA', '8 CGPA', 'Fresher', 'BE in CS', '2024-09-27 13:56:31');
+(3, 3, 'Java Backend developer', 'Handel the Company\'s Database in Java Language', '90000', '7.5 CGPA and Data Structure', '2 years', 'M.Tech in Computer Engineer', '2024-01-17 16:34:19');
 
 -- --------------------------------------------------------
 
@@ -48782,8 +48780,7 @@ CREATE TABLE `marks` (
 
 INSERT INTO `marks` (`name`, `roll`, `year`, `subject`, `ut1`, `ut2`, `assignment`, `report`, `practicals`, `attendence`, `internalmarks`) VALUES
 ('Om kawad', 2101300131, 1, 'Pharmacognosy', 19, 19, 5, 5, 47, 8.33, 29),
-('om', 2101300131, 1, 'Pharmaceutics', 19, 19, 4, 4, 49, 8.33, 27),
-('Om Kawad', 2101300131, 1, 'Pharmaceutics', 20, 20, 5, 5, 45, 8.33, 30);
+('om', 2101300131, 1, 'Pharmaceutics', 19, 19, 4, 4, 49, 8.33, 27);
 
 -- --------------------------------------------------------
 
@@ -53002,16 +52999,15 @@ CREATE TABLE `tbladmin` (
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `emailAddress` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `otp` varchar(200) NOT NULL DEFAULT 'NOT DEFINED'
+  `password` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbladmin`
 --
 
-INSERT INTO `tbladmin` (`Id`, `firstName`, `lastName`, `emailAddress`, `password`, `otp`) VALUES
-(1, 'Admin', '', 'dhamanechinmay@gmail.com', '123', 'NOT DEFINED');
+INSERT INTO `tbladmin` (`Id`, `firstName`, `lastName`, `emailAddress`, `password`) VALUES
+(1, 'Admin', '', 'Admin', '123');
 
 -- --------------------------------------------------------
 
@@ -53024,6 +53020,7 @@ CREATE TABLE `tblattendance` (
   `admissionNo` varchar(255) NOT NULL,
   `classId` varchar(10) NOT NULL,
   `classArmId` varchar(10) NOT NULL,
+  `sessionTermId` varchar(10) NOT NULL,
   `status` varchar(10) NOT NULL,
   `dateTimeTaken` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -53032,41 +53029,36 @@ CREATE TABLE `tblattendance` (
 -- Dumping data for table `tblattendance`
 --
 
-INSERT INTO `tblattendance` (`Id`, `admissionNo`, `classId`, `classArmId`, `status`, `dateTimeTaken`) VALUES
-(243, 'A12345', '4', '6', '1', '2024-03-05'),
-(242, 'A12345', '4', '6', '1', '2024-03-01'),
-(241, 'A12345', '4', '6', '1', '2024-02-29'),
-(240, '2101300134', '4', '6', '1', '2024-02-22'),
-(239, '2101300130', '4', '6', '1', '2024-02-22'),
-(238, '2101300139', '4', '6', '1', '2024-02-22'),
-(237, '2101300106', '4', '6', '1', '2024-02-22'),
-(236, '2101300131', '4', '6', '1', '2024-02-22'),
-(235, '2101300134', '4', '6', '1', '2024-01-25'),
-(234, '2101300130', '4', '6', '1', '2024-01-25'),
-(233, '2101300139', '4', '6', '1', '2024-01-25'),
-(232, '2101300106', '4', '6', '1', '2024-01-25'),
-(231, '2101300131', '4', '6', '1', '2024-01-25'),
-(230, '2101300134', '4', '6', '1', '2024-01-20'),
-(229, '2101300130', '4', '6', '1', '2024-01-20'),
-(228, '2101300139', '4', '6', '1', '2024-01-20'),
-(227, '2101300106', '4', '6', '1', '2024-01-20'),
-(226, '2101300131', '4', '6', '1', '2024-01-20'),
-(225, '2101300134', '4', '6', '1', '2024-01-19'),
-(224, '2101300130', '4', '6', '1', '2024-01-19'),
-(223, '2101300131', '4', '6', '1', '2024-01-19'),
-(222, '2101300134', '4', '6', '1', '2024-01-18'),
-(221, '2101300130', '4', '6', '1', '2024-01-18'),
-(220, '2101300131', '4', '6', '1', '2024-01-18'),
-(244, 'A12345', '4', '6', '1', '2024-03-10'),
-(245, 'A12345', '4', '6', '1', '2024-04-03'),
-(246, 'A12345', '4', '6', '1', '2024-04-04'),
-(247, '2101300171', '6', '8', '1', '2024-04-09'),
-(248, 'A12345', '4', '6', '1', '2024-04-10'),
-(249, 'A12345', '4', '6', '1', '2024-09-15'),
-(250, '2101300171', '6', '8', '0', '2024-09-27'),
-(251, '2101300131', '1', '10', '1', '2024-09-27'),
-(252, '2024313', '1', '10', '1', '2024-09-27'),
-(253, '2024334', '1', '10', '0', '2024-09-27');
+INSERT INTO `tblattendance` (`Id`, `admissionNo`, `classId`, `classArmId`, `sessionTermId`, `status`, `dateTimeTaken`) VALUES
+(243, 'A12345', '4', '6', '1', '1', '2024-03-05'),
+(242, 'A12345', '4', '6', '1', '1', '2024-03-01'),
+(241, 'A12345', '4', '6', '1', '1', '2024-02-29'),
+(240, '2101300134', '4', '6', '1', '1', '2024-02-22'),
+(239, '2101300130', '4', '6', '1', '1', '2024-02-22'),
+(238, '2101300139', '4', '6', '1', '1', '2024-02-22'),
+(237, '2101300106', '4', '6', '1', '1', '2024-02-22'),
+(236, '2101300131', '4', '6', '1', '1', '2024-02-22'),
+(235, '2101300134', '4', '6', '1', '1', '2024-01-25'),
+(234, '2101300130', '4', '6', '1', '1', '2024-01-25'),
+(233, '2101300139', '4', '6', '1', '1', '2024-01-25'),
+(232, '2101300106', '4', '6', '1', '1', '2024-01-25'),
+(231, '2101300131', '4', '6', '1', '1', '2024-01-25'),
+(230, '2101300134', '4', '6', '1', '1', '2024-01-20'),
+(229, '2101300130', '4', '6', '1', '1', '2024-01-20'),
+(228, '2101300139', '4', '6', '1', '1', '2024-01-20'),
+(227, '2101300106', '4', '6', '1', '1', '2024-01-20'),
+(226, '2101300131', '4', '6', '1', '1', '2024-01-20'),
+(225, '2101300134', '4', '6', '1', '1', '2024-01-19'),
+(224, '2101300130', '4', '6', '1', '1', '2024-01-19'),
+(223, '2101300131', '4', '6', '1', '1', '2024-01-19'),
+(222, '2101300134', '4', '6', '1', '1', '2024-01-18'),
+(221, '2101300130', '4', '6', '1', '1', '2024-01-18'),
+(220, '2101300131', '4', '6', '1', '1', '2024-01-18'),
+(244, 'A12345', '4', '6', '1', '1', '2024-03-10'),
+(245, 'A12345', '4', '6', '1', '1', '2024-04-03'),
+(246, 'A12345', '4', '6', '1', '1', '2024-04-04'),
+(247, '2101300171', '6', '8', '1', '1', '2024-04-09'),
+(248, 'A12345', '4', '6', '1', '0', '2024-04-10');
 
 -- --------------------------------------------------------
 
@@ -53084,10 +53076,10 @@ CREATE TABLE `tblclass` (
 --
 
 INSERT INTO `tblclass` (`Id`, `className`) VALUES
-(1, 'First year'),
-(3, 'Second  Year'),
-(4, 'Third Year'),
-(6, 'Final year');
+(1, 'FY'),
+(3, 'SY'),
+(4, 'TY'),
+(6, 'DLT ');
 
 -- --------------------------------------------------------
 
@@ -53107,9 +53099,11 @@ CREATE TABLE `tblclassarms` (
 --
 
 INSERT INTO `tblclassarms` (`Id`, `classId`, `classArmName`, `isAssigned`) VALUES
-(10, '1', 'CS', '1'),
-(9, '1', 'IT', '1'),
-(11, '1', 'E&TC', '0');
+(2, '1', 'CO', '0'),
+(5, '3', 'CO', '0'),
+(6, '4', 'CO', '1'),
+(7, '5', 'FY DPHARM', '0'),
+(8, '6', 'DLT-FY', '1');
 
 -- --------------------------------------------------------
 
@@ -53126,19 +53120,16 @@ CREATE TABLE `tblclassteacher` (
   `phoneNo` varchar(50) NOT NULL,
   `classId` varchar(10) NOT NULL,
   `classArmId` varchar(10) NOT NULL,
-  `dateCreated` varchar(50) NOT NULL,
-  `otp` varchar(200) NOT NULL DEFAULT 'NOT DEFINED'
+  `dateCreated` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tblclassteacher`
 --
 
-INSERT INTO `tblclassteacher` (`Id`, `firstName`, `lastName`, `emailAddress`, `password`, `phoneNo`, `classId`, `classArmId`, `dateCreated`, `otp`) VALUES
-(6, 'Om', 'Kawad', 'teacher@mail.com', '123', '0100000030', '4', '6', '2022-10-07', 'NOT DEFINED'),
-(7, 'chinmay', 'dhamane', 'dhamanechinmay@gmail.com', '123', '8805567177', '1', '10', '2024-04-09', 'NOT DEFINED'),
-(8, 'Kesar', 'Bang', 'bangkesar991@gmail.com', '32250170a0dca92d53ec9624f336ca24', '9527803363', '1', '10', '2024-09-27', 'NOT DEFINED'),
-(9, 'Kesar', 'Bang', 'dhamanechinmay7@gmail.com', '32250170a0dca92d53ec9624f336ca24', '9527803363', '1', '9', '2024-09-27', 'NOT DEFINED');
+INSERT INTO `tblclassteacher` (`Id`, `firstName`, `lastName`, `emailAddress`, `password`, `phoneNo`, `classId`, `classArmId`, `dateCreated`) VALUES
+(6, 'Om', 'Kawad', 'teacher@mail.com', '123', '0100000030', '4', '6', '2022-10-07'),
+(7, 'Shabbir', 'Merchant', 'shabbir@gmail.com', '123', '8805567177', '6', '8', '2024-04-09');
 
 -- --------------------------------------------------------
 
@@ -53159,8 +53150,9 @@ CREATE TABLE `tblsessionterm` (
 --
 
 INSERT INTO `tblsessionterm` (`Id`, `sessionName`, `termId`, `isActive`, `dateCreated`) VALUES
-(5, '2024-2025', '1', '0', '2024-09-27'),
-(3, '2021/2022', '2', '0', '2022-10-31');
+(1, '2021/2022', '1', '1', '2022-10-31'),
+(3, '2021/2022', '2', '0', '2022-10-31'),
+(4, 'FY', '1', '0', '2024-04-03');
 
 -- --------------------------------------------------------
 
@@ -53172,25 +53164,22 @@ CREATE TABLE `tblstudents` (
   `Id` int(10) NOT NULL,
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `otherName` varchar(255) NOT NULL,
   `admissionNumber` varchar(255) NOT NULL,
   `password` varchar(50) NOT NULL,
   `classId` varchar(10) NOT NULL,
   `classArmId` varchar(10) NOT NULL,
-  `dateCreated` varchar(50) NOT NULL,
-  `otp` varchar(200) NOT NULL DEFAULT 'NOT DEFINED',
-  `dept` varchar(20) NOT NULL
+  `dateCreated` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tblstudents`
 --
 
-INSERT INTO `tblstudents` (`Id`, `firstName`, `lastName`, `email`, `admissionNumber`, `password`, `classId`, `classArmId`, `dateCreated`, `otp`, `dept`) VALUES
-(1, 'Om ', 'Kawad', 'omkawad@gmail.com', '2101300131', '12345', '1', '10', '2024-02-29', 'NOT DEFINED', 'CS'),
-(2, 'Chinmay', 'Dhanmne', 'dhamanechinmay@gmail.com', 'A12345', '12345', '4', '6', '2024-02-29', 'NOT DEFINED', 'E&TC'),
-(26, 'Pratik', 'Ovhal', 'dhamanechinmay7@gmail.com', '2024313', '12345', '1', '10', '2024-09-27', 'NOT DEFINED', 'CS'),
-(27, 'shravani', 'vetal', 'dhamanechinmay17@gmail.com', '2024334', '12345', '1', '10', '2024-09-27', 'NOT DEFINED', '');
+INSERT INTO `tblstudents` (`Id`, `firstName`, `lastName`, `otherName`, `admissionNumber`, `password`, `classId`, `classArmId`, `dateCreated`) VALUES
+(1, 'Om ', 'Kawad', 'omkawad@gmail.com', '2101300131', '12345', '3', '5', '2024-02-29'),
+(2, 'Chinmay', 'Dhanmne', 'chinmay@gmail.com', 'A12345', '12345', '4', '6', '2024-02-29'),
+(25, 'Shankar', 'Jeve', '', '2101300171', '12345', '6', '8', '2024-04-09');
 
 -- --------------------------------------------------------
 
@@ -53403,7 +53392,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `job_post`
 --
 ALTER TABLE `job_post`
-  MODIFY `id_jobpost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_jobpost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `mailbox`
@@ -53439,7 +53428,7 @@ ALTER TABLE `tbladmin`
 -- AUTO_INCREMENT for table `tblattendance`
 --
 ALTER TABLE `tblattendance`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
 
 --
 -- AUTO_INCREMENT for table `tblclass`
@@ -53451,25 +53440,25 @@ ALTER TABLE `tblclass`
 -- AUTO_INCREMENT for table `tblclassarms`
 --
 ALTER TABLE `tblclassarms`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tblclassteacher`
 --
 ALTER TABLE `tblclassteacher`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblsessionterm`
 --
 ALTER TABLE `tblsessionterm`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblstudents`
 --
 ALTER TABLE `tblstudents`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tblterm`
